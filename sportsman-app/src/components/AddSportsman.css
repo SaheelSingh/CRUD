@@ -1,0 +1,38 @@
+.main {
+    margin: 20px 0;
+}
+
+label {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+form {
+    width: 30%;
+    margin: auto;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    font-size: 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;  
+}
+
+.add {
+    width: 50%;
+    background-color: #4CAF50;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;  
+    cursor: pointer;
+    color: white;
+    font-size: large;
+}

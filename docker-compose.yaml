@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo
+    container_name: db_c
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=secret
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+    networks:
+      - mynetwork
+  api:
+    build: ./api
+    container_name: reactnode_c
+    volumes:
+      - ./api:/api
+      - /api/node_modules
+    ports:
+      - 4000:4000 
+    depends_on:
+      - mongo
+    networks:
+      - mynetwork
+  sportman-app:
+    build: ./sportsman-app
+    container_name: sportman_c
+    environment:
+      - WATCHPACK_POLLING=true
+    volumes:
+      - ./sportsman-app:/sportsman-app
+      - /sportsman-app/node_modules
+    ports:
+      - 3000:3000
+    depends_on:
+      - api
+    networks:
+      - mynetwork
+volumes:
+  mongodb:
+networks:
+  mynetwork:
+    driver: bridge
