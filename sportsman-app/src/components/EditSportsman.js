@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { json, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import './EditSportsman.css'
 
-function EditSportsman({updateData}) {
-    const {id} = useParams();
+function EditSportsman({ updateData }) {
+    const { id } = useParams();
     const navigate = useNavigate()
-    const [sportsman, setSportsMan] = useState(''); 
-    const [sport, setSport] = useState(''); 
+    const [sportsman, setSportsMan] = useState('');
+    const [sport, setSport] = useState('');
 
     useEffect(() => {
         async function fetchSingleData() {

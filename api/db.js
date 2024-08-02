@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const connectDb = () => {
     try {
-        mongoose.connect('mongodb://root:secret@mongo:27017/', {
+        mongoose.connect('mongodb://root:secret@mongo:27017/sportDatabase?authSource=admin', {
             useNewUrlParser: true,
             useUnifiedTopology: true
         })

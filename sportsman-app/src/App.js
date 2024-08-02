@@ -26,7 +26,7 @@ function App() {
   useEffect(() => {
     fetchData();
     console.log('fetching Data...')
-  }, [])
+  } , [])
 
   const addItem = async (sportman, sport) => {
     try {
@@ -61,11 +61,12 @@ function App() {
     }
   }
 
-  const updateData = async (id, sportsman, sport) => {
+  const updateData = async (id, sportman, sport) => {
     const response = await fetch(`http://localhost:4000/sport/edit/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
-        sportsman, sport
+        sportman,
+        sport
       }),
       headers: {
         'content-type': 'application/json'

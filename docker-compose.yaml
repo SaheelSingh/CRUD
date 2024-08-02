@@ -19,7 +19,7 @@ services:
       - ./api:/api
       - /api/node_modules
     ports:
-      - 4000:4000 
+      - 4000:4000
     depends_on:
       - mongo
     networks:

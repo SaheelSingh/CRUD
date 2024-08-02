@@ -31,9 +31,15 @@ app.get('/sport/:id', async (req, res) => {
 app.post('/sport', async (req, res) => {
     try {
         const {sportman, sport} = req.body;
+        if (!sportman || !sport) {
+            res.status(400)
+            res.json('okkkkkkk')
+            return
+        }
         const product = new Sport({sportman, sport});
         await product.save();
         res.json({success: true})
+        console.log('Data added successfully...')
     }
     catch(error) {
         res.status(500).send(error.message)
@@ -45,7 +51,7 @@ app.delete('/sport/:id', async (req, res) => {
         const id = req.params.id
         await Sport.deleteOne({ _id: id})
         res.status(200).json("Player detail deleted!")
-        console.log('delete')
+        console.log('Data deleted successfully...')
     } catch (error) {
         res.status(500).send(error.message)
     }
@@ -59,7 +65,8 @@ app.put('/sport/edit/:id', async (req,res) => {
             sport: req.body.sport
         }
         const dat = await Sport.updateOne({_id: id}, newValue)
-        res.status(200).json(dat)
+        res.status(200).json(dat);
+        console.log('Data updated successfully...');
     } catch (error) {
         res.status(500).send(error.message)
     }
